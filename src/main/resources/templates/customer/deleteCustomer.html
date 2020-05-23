@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Delete Customer</title>
+
+</head>
+<body>
+<header>
+    <nav class="nav">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="/">Motorhome Administration</a>
+    </nav>
+</header>
+<div class="container">
+    <h1>Delete Customer</h1>
+    <h2>Are you sure you want to delete?</h2>
+    <tr>
+        <th>Id:</th>
+        <span th:text="${customer.getCusId()}"></span>
+    </tr>
+    <br>
+    <tr>
+        <th>First name:</th>
+        <span th:text="${customer.getCusFirstName()}"></span>
+    </tr>
+    <br>
+    <tr>
+        <th>Last name:</th>
+        <span th:text="${customer.getCusLastName()}"></span>
+    </tr>
+    <br>
+</div>
+</body>
+</html>

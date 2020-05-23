@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Administration</title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/Styles.css">
+
+</head>
+<body>
+
+<header>
+    <nav class="nav">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="/">Motorhome Administration</a>
+    </nav>
+</header>
+
+
+<div class="container">
+
+    <h1>Customer Administration </h1>
+    <br>
+    <h2>Choose an option</h2>
+
+    <a href="/createCustomer"><button class ="btn btn-create">Create Customer</button></a>
+    <a href="/editCustomer"><button class ="btn btn-ed">Edit Customer</button></a>
+    <a href="/findCustomer"><button class="btn btn-details">Find Customer</button></a>
+    <a href="/allCustomers"><button class="btn btn-details">See all Customers</button></a>
+    <a href="/deleteCustomer"><button class="btn btn-del">Delete Customer</button></a>
+
+</div>
+</body>
+</html>

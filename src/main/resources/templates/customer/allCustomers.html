@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Administration</title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/Styles.css">
+
+</head>
+<body>
+<!-- TODO: MENU -->
+<!-- TODO: Table of students -->
+<header>
+    <nav class="nav">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="/">Motorhome Administration</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Customer List</h2>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Zip</th>
+            <th>City</th>
+            <th>Drivers license</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each="customer : ${customers}">
+            <th th:text="${customer.cusId}"></th>
+            <th th:text="${customer.cusFirstName}"></th>
+            <th th:text="${customer.cusLastName}"></th>
+            <th th:text="${customer.cusPhone}"></th>
+            <th th:text="${customer.cusAddress}"></th>
+            <th th:text="${customer.cusZip}"></th>
+            <th th:text="${customer.cusCity}"></th>
+            <th th:text="${customer.cusDriversLicense}"></th>
+            <th th:text="${customer.cusEmail}"></th>
+            </th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
