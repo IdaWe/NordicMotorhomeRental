@@ -13,9 +13,9 @@ import java.util.List;
 
 public class CustomerRepositoryImpl implements ICustomerRepository{
     private Connection conn; //database?
-    private static final String CREATE_USER_SQL = "INSERT INTO customer" + "(cus_id, cus_first_name, cus_last_name, cus_phone, cus_address, cus_zip, cus_city, cus_drivers_license_number, cus_email) VALUES" + "(?,?,?,?,?,?,?,?,?);";
-    //private static final String FIND_USER_SQL = "SELECT * FROM costumer WHERE student_id=?;";
-
+    private static final String CREATE_CUSTOMER_SQL = "INSERT INTO customer" + "(cus_id, cus_first_name, cus_last_name, cus_phone, cus_address, cus_zip, cus_city, cus_drivers_license_number, cus_email) VALUES" + "(?,?,?,?,?,?,?,?,?);";
+    private static final String DELETE_CUSTOMER_SQL = "DELETE FROM customer WHERE cus_id =?";
+    private static final String EDIT_CUSTOMER_SQL = "UPDATE customer SET cus_first_name =?, cus_last_name =?, cus_phone =?, cus_address =?, cus_zip =?, cus_city =?, cus_drivers_license_number =?, cus_email =? WHERE cus_id=?;";
 
 
     public CustomerRepositoryImpl() {
@@ -26,7 +26,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
     @Override
     public void create(CustomerDTO customer){
         try {
-            PreparedStatement prep = conn.prepareStatement(CREATE_USER_SQL);
+            PreparedStatement prep = conn.prepareStatement(CREATE_CUSTOMER_SQL);
             {
                 prep.setInt(1, customer.getCusId());
                 prep.setString(2, customer.getCusFirstName());
@@ -106,18 +106,45 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
 
 
 
+    public void edit(CustomerDTO customer){
+        try {
+            ;
+            PreparedStatement prep = conn.prepareStatement(EDIT_CUSTOMER_SQL);
 
+            prep.setString(1, customer.getCusFirstName());
+            prep.setString(2, customer.getCusLastName());
+            prep.setInt(3, customer.getCusPhone());
+            prep.setString(4, customer.getCusAddress());
+            prep.setInt(5, customer.getCusZip());
+            prep.setString(6, customer.getCusCity());
+            prep.setInt(7, customer.getCusDriversLicense());
+            prep.setString(8, customer.getCusEmail());
+            prep.setInt(9, customer.getCusId());
 
+            prep.executeUpdate();
 
-
-
-    public void update(CustomerDTO customerDTO){
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }
 
-    public void delete(int id){
 
+
+    @Override
+    public void delete(int cusId){
+        try {
+            PreparedStatement prep = conn.prepareStatement(DELETE_CUSTOMER_SQL);
+            prep.setInt(1, cusId);
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
     }
+
+
+
 
 }

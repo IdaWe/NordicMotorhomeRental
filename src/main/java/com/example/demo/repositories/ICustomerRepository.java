@@ -13,7 +13,7 @@ public interface ICustomerRepository {
 
         public List<CustomerDTO> readAll();
 
-        public void update(CustomerDTO customerDTO);
+        public void edit(CustomerDTO customer);
 
         public void delete(int id);
     }

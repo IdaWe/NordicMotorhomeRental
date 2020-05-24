@@ -21,13 +21,16 @@ public class CustomerController {
     }
 
 
+
+ /*------------------------------ Customer Administration ----------------------------------------------*/
+
     @GetMapping("/customerAdministration")
     public String customerAdministration(/*Model model*/){
         /*model.addAttribute("students", studentRepository.readAll());*/
         return "customer/customerAdministration";
     }
 
-
+    /*------------------------------------- Create Customer ----------------------------------------------*/
     @GetMapping("/createCustomer")
     public String createCustomer(Model model){
         model.addAttribute("customer", new CustomerDTO());
@@ -40,12 +43,16 @@ public class CustomerController {
         return "redirect:/customerAdministration";
     }
 
+    /*------------------------------------- See all Customers ----------------------------------------------*/
+
     @GetMapping("/allCustomers")
     public String allCustomers(Model model){
         model.addAttribute("customers", customerRepository.readAll());
         return "customer/allCustomers";
     }
 
+
+    /*------------------------------------------ Find Customer ----------------------------------------------*/
 
     @GetMapping("/findCustomer")
     public String findCustomer(Model model){
@@ -56,13 +63,15 @@ public class CustomerController {
     }
 
 
-
     @PostMapping("/getCustomerById")
     public String getCustomerById(@ModelAttribute CustomerDTO customer,Model model) {
         CustomerDTO cus = customerRepository.read(customer.getCusId());
         model.addAttribute("customer", cus);
         return "customer/findCustomer";
     }
+
+
+    /*------------------------------------- Delete Customer ---------------------------------------------*/
 
     @GetMapping("/deleteCustomer")
     public String details(Model model, @RequestParam int cusId){
@@ -71,10 +80,10 @@ public class CustomerController {
         return "customer/deleteCustomer";
     }
 
-/*
---- Denne virker også som getmapping til delete customer, hvad er rigtigt?!?!?
 
-    @GetMapping("/deleteCustomer")
+// Denne virker også som getmapping til delete customer, hvad er rigtigt?!?!?
+
+   /*  @GetMapping("/deleteCustomer")
     public String deleteStud(@ModelAttribute CustomerDTO customer,Model model){
         CustomerDTO cus = customerRepository.read(customer.getCusId());
         model.addAttribute("customer", cus);
@@ -82,66 +91,46 @@ public class CustomerController {
     }
 */
 
-
-
-
-
-
-    /*
-    @GetMapping("/getCustomerById")
-    public String deleteStud(Model model, @RequestParam int cusId){
-        CustomerDTO cus = customerRepository.read(cusId);
-        model.addAttribute("customer", cus);
-        return "customer/deleteCustomer";
-    }
-/*
-    @PostMapping ("student/deleteStudent")
-    public String deleteForGood(int id){
-        studentRepository.delete(id);
-        return "redirect:/overview";
+    @PostMapping("/deleteCustomer")
+    public String deleteForGood(@RequestParam int cusId){
+        customerRepository.delete(cusId);
+        return "redirect:/customerAdministration";
     }
 
 
+    /*---------------------------------------- Edit Customer ----------------------------------------------*/
+
+
+
+
+    @GetMapping("/editCustomer")
+    public String editCustomer(Model model, @RequestParam int cusId){
+        CustomerDTO customer = customerRepository.read(cusId);
+        model.addAttribute("customer", customer);
+        return "customer/editCustomer";
+    }
 
 /*
-
-    @PostMapping("/customer/findCustomerById")
-    public String findCustomerById(Model model, int search) {
-        CustomerDTO cus = customerRepository.read(search);
-        model.addAttribute("customer", cus);
-        return "redirect:/customer/findCustomerById";
-    }
+    @PostMapping("/editCustomer")
+    public String updateCustomer(@ModelAttribute CustomerDTO customer){
+        CustomerDTO cus = customerRepository.read(customer.getCusId());
+        customerRepository.edit(customer);
 
 
-   /* @PostMapping("/grocery/addGrocery")
-    public String addGrocery(@ModelAttribute Grocery groceryFromPost, Model model) {
-        fakeDatabase.add(groceryFromPost);
-        groceryFromPost.getPrisGangeAntal();
-        //System.out.println(groceryFromPost);
-        return "redirect:/grocery/overview";
-    }
-
-
-
-/*
-    @GetMapping("/findCustomer")
-    public String findCustomer(@RequestParam (value = "cusId") int cusId, Model model) {
-        model.addAttribute("customer", customerRepository.read(cusId));
-        return "customer/findCustomer";
-    }
-
-
-    @GetMapping("/findCustomer")
-    public String findCustomer(Model model){
-        model.addAttribute("customer", customerRepository.read());
-        return "customer/findCustomer";
-    }
-
-    @PostMapping("/findCustomer")
-    public String findCustomerById(@ModelAttribute CustomerDTO customerDTO){
-        customerRepository.create(customerDTO);
+        // CustomerDTO cus = customerRepository.read(getCusId());
+        //customerRepository.edit(cus.getCusId());
         return "redirect:/customerAdministration";
     }*/
+
+
+
+    @PostMapping("/editCustomer")
+    public String updateCustomer(@ModelAttribute CustomerDTO customer){
+        customerRepository.edit(customer);
+        return "redirect:/customerAdministration";
+    }
+
+
 
 
 }
