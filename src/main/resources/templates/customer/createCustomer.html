@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-
     <title>Create Customer</title>
-
 </head>
+
 <body>
 
-
 <header>
-    <nav class="nav">
+    <!-- Navigation Bar -->
+    <nav class="navigation">
         <a href="/">Nordic Motorhome Rental</a>
         <a href="customerAdministration">Customer Administration</a>
         <a href="motorhomeAdministration">Motorhome Administration</a>
@@ -20,52 +20,49 @@
 
 <div class="container">
     <h1>Create Customer</h1>
-    <form th:action="@{/createCustomer}" th:object="${customer}" method="post">
+            <form th:action="@{/createCustomer}" th:object="${customer}" method="post">
 
-        <tr>
-            <th>First Name:</th>
-            <td><input type="text" th:field="*{cusFirstName}" placeholder="First name" /></td>
-        </tr>
-        <br>
-        <tr>
-            <th>Last Name:</th>
-            <td><input type="text" th:field="*{cusLastName}" placeholder="Last name"/></td>
-        </tr>
-        <br>
-        <tr>
-            <th>Phone:</th>
-            <td><input type="text" th:field="*{cusPhone}" placeholder="phone"/></td>
-        </tr>
-        <br>
-        <tr>
-            <th>Address:</th>
-            <td><input type="text" th:field="*{cusAddress}" placeholder="Address"/></td>
-        </tr>
-        <br>
-        <tr>
-            <th>Zip:</th>
-            <td><input type="text" th:field="*{cusZip}" placeholder="Zip"/></td>
-        </tr>
-        <br>
-        <tr>
-            <th>City:</th>
-            <td><input type="text" th:field="*{cusCity}" placeholder="City"/></td>
-        </tr>
-        <br>
-        <tr>
-            <th>Drivers License:</th>
-            <td><input type="text" th:field="*{cusDriversLicense}" placeholder="Drivers License"/></td>
-        </tr>
-        <br>
-        <tr>
-            <th>Email:</th>
-            <td><input type="text" th:field="*{cusEmail}" placeholder="Email"/></td>
-        </tr>
-        <input type="submit" value="Create" class="btn btn-create">
-    </form>
-
-    <br>
-</div>
-
-</body>
+                <tr>
+                    <th>First Name:</th>
+                    <td><input type="text" th:field="*{cusFirstName}" placeholder="First name" /></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Last Name:</th>
+                    <td><input type="text" th:field="*{cusLastName}" placeholder="Last name"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Phone:</th>
+                    <td><input type="text" th:field="*{cusPhone}" placeholder="phone"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Address:</th>
+                    <td><input type="text" th:field="*{cusAddress}" placeholder="Address"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Zip:</th>
+                    <td><input type="text" th:field="*{cusZip}" placeholder="Zip"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>City:</th>
+                    <td><input type="text" th:field="*{cusCity}" placeholder="City"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Drivers License:</th>
+                    <td><input type="text" th:field="*{cusDriversLicense}" placeholder="Drivers License"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Email:</th>
+                    <td><input type="text" th:field="*{cusEmail}" placeholder="Email"/></td>
+                </tr>
+                <input type="submit" value="Create" class="btn btn-create">
+            </form>
+        </div>
+    </body>
 </html>

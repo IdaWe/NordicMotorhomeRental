@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Create Motorhome</title>
+</head>
+
+<body>
+
+<header>
+    <nav class="nav">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="motorhomeAdministration">Motorhome Administration</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Create Motorhome</h1>
+            <form th:action="@{/createMotorhome}" th:object="${motorhome}" method="post">
+
+                <tr>
+                    <th>Brand:</th>
+                    <td><input type="text" th:field="*{brand}" placeholder="Brand" /></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Model:</th>
+                    <td><input type="text" th:field="*{model}" placeholder="Model"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Type:</th>
+                    <td><input type="text" th:field="*{type}" placeholder="Type"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Description:</th>
+                    <td><input type="text" th:field="*{description}" placeholder="Description"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Price:</th>
+                    <td><input type="text" th:field="*{price}" placeholder="Price"/></td>
+                </tr>
+                <br>
+                <input type="submit" value="Create" class="btn btn-create">
+            </form>
+            <br>
+        </div>
+    </body>
+</html>

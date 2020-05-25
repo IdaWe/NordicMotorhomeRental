@@ -57,7 +57,7 @@ public class CustomerController {
     @GetMapping("/findCustomer")
     public String findCustomer(Model model){
        // if(model.getAttribute("customer") == null) {
-            model.addAttribute("customer", new CustomerDTO());// laver et tomt customer object, det der står i form {customer}
+            model.addAttribute("customer", new CustomerDTO());// laver et tomt customer object -> det der står i form {customer}
       //  }
         return "customer/findCustomer";
     }
@@ -74,22 +74,13 @@ public class CustomerController {
     /*------------------------------------- Delete Customer ---------------------------------------------*/
 
     @GetMapping("/deleteCustomer")
-    public String details(Model model, @RequestParam int cusId){
+    public String deleteCustomer(Model model, @RequestParam int cusId){
         CustomerDTO cus = customerRepository.read(cusId);
         model.addAttribute("customer", cus);
         return "customer/deleteCustomer";
     }
 
 
-// Denne virker også som getmapping til delete customer, hvad er rigtigt?!?!?
-
-   /*  @GetMapping("/deleteCustomer")
-    public String deleteStud(@ModelAttribute CustomerDTO customer,Model model){
-        CustomerDTO cus = customerRepository.read(customer.getCusId());
-        model.addAttribute("customer", cus);
-        return "customer/deleteCustomer";
-    }
-*/
 
     @PostMapping("/deleteCustomer")
     public String deleteForGood(@RequestParam int cusId){
@@ -110,17 +101,6 @@ public class CustomerController {
         return "customer/editCustomer";
     }
 
-/*
-    @PostMapping("/editCustomer")
-    public String updateCustomer(@ModelAttribute CustomerDTO customer){
-        CustomerDTO cus = customerRepository.read(customer.getCusId());
-        customerRepository.edit(customer);
-
-
-        // CustomerDTO cus = customerRepository.read(getCusId());
-        //customerRepository.edit(cus.getCusId());
-        return "redirect:/customerAdministration";
-    }*/
 
 
 
@@ -129,8 +109,6 @@ public class CustomerController {
         customerRepository.edit(customer);
         return "redirect:/customerAdministration";
     }
-
-
 
 
 }

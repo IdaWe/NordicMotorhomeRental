@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Find Motorhome</title>
+</head>
+
+<body>
+
+<header>
+    <!-- Navigation Bar -->
+    <nav class="navigation">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="motorhomeAdministration">Motorhome Administration</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Find Motorhome</h1>
+    <form th:action="@{/getMotorhomeById}" th:object="${motorhome}" method="post">
+        <tr>
+            <th>Indtast id:</th>
+            <input type="text" th:field="*{motorhomeId}" placeholder="Id" />
+            <input type="submit" value="Search"/>
+        </tr>
+    </form>
+    <div>
+        <span th:if="${motorhome.getMotorhomeId() != 0}">
+            <br>
+                <h2>Motorhome details</h2>
+                <tr>
+                    <th>Id:</th>
+                    <span th:text="${motorhome.getMotorhomeId()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Brand:</th>
+                    <span th:text="${motorhome.getBrand()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Model:</th>
+                    <span th:text="${motorhome.getModel()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Type:</th>
+                    <span th:text="${motorhome.getType()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Description:</th>
+                    <span th:text="${motorhome.getDescription()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Price:</th>
+                    <span th:text="${motorhome.getPrice()}"></span>
+                </tr>
+                <br>
+                <br>
+                <a th:href="@{/editMotorhome(motorhomeId=${motorhome.getMotorhomeId()})}"><button class="btn btn-ed w">Edit</button></a>
+                <a th:href="@{/deleteMotorhome(motorhomeId=${motorhome.getMotorhomeId()})}"><button class="btn btn-del w">Delete</button></a>
+                    </span>
+            </div>
+        </div>
+    </body>
+</html>

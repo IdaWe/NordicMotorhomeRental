@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Edit Motorhome</title>
+</head>
+
+<body>
+
+<header>
+    <!-- Navigation Bar -->
+    <nav class="navigation">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="motorhomeAdministration">Motorhome Administration</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Edit Motorhome</h1>
+    <form class ="container" th:action="@{/editMotorhome}" th:object="${motorhome}" method="post">
+        <input type="hidden" th:field="${motorhome.motorhomeId}"/>
+        <br>
+        <tr>
+            <th>Brand</th>
+            <td><input type="text" th:field="*{brand}"/></td>
+
+        </tr>
+        <br>
+        <tr>
+            <th>Model</th>
+            <td><input type="text" th:field="*{model}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Type</th>
+            <td><input type="text" th:field="*{type}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Description</th>
+            <td><input type="text" th:field="*{description}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>price</th>
+            <td><input type="text" th:field="*{price}"/></td>
+        </tr>
+        <br>
+        <input type="submit" value="Update" class="btn btn-create">
+    </Form>
+</div>
+</body>
+</html>

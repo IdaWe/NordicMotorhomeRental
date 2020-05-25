@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Delete Customer</title>
+</head>
+
+<body>
+<header>
+    <!-- Navigation Bar -->
+    <nav class="navigation">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="motorhomeAdministration">Motorhome Administration</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Delete Customer</h1>
+    <h2>Are you sure you want to delete?</h2>
+    <form th:action="@{deleteMotorhome}" method="post" th:object="${motorhome}">
+        <input type="hidden" th:field="${motorhome.motorhomeId}"/>
+        <tr>
+            <th>Id:</th>
+            <span th:text="${motorhome.motorhomeId}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Brand:</th>
+            <span th:text="${motorhome.getBrand()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Model:</th>
+            <span th:text="${motorhome.getModel()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Type:</th>
+            <span th:text="${motorhome.getType()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Description:</th>
+            <span th:text="${motorhome.getDescription()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Price:</th>
+            <span th:text="${motorhome.getPrice()}"></span>
+        </tr>
+        <br>
+        <br>
+        <button type="submit" value="Submit" class="btn btn-del w">Delete</button>
+        <a href="/motorhomeAdministration" class="btn btn-details w" type="submit">No</a>
+    </form>
+</div>
+</body>
+</html>

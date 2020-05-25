@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <title>See all motorhomes</title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/Styles.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="nav">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="motorhomeAdministration">Motorhome Administration</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Motorhome List</h2>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+                <tr th:each="motorhome : ${motorhomes}">
+                    <th th:text="${motorhome.motorhomeId}"></th>
+                    <th th:text="${motorhome.brand}"></th>
+                    <th th:text="${motorhome.model}"></th>
+                    <th th:text="${motorhome.type}"></th>
+                    <th th:text="${motorhome.description}"></th>
+                    <th th:text="${motorhome.price}"></th>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

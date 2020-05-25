@@ -7,26 +7,21 @@
     <title>Edit Customer</title>
 </head>
 
-
 <body>
 
 <header>
-    <nav class="nav">
+    <!-- Navigation Bar -->
+    <nav class="navigation">
         <a href="/">Nordic Motorhome Rental</a>
         <a href="customerAdministration">Customer Administration</a>
-        <a href="/">Motorhome Administration</a>
+        <a href="motorhomeAdministration">Motorhome Administration</a>
     </nav>
 </header>
 
-
-    <div class="container">
+<div class="container">
     <h1>Edit Customer</h1>
             <form class ="container" th:action="@{/editCustomer}" th:object="${customer}" method="post">
-             <!--<input type="hidden" name="cus_id" th:value="${customer.getCusId()}"/>-->
                 <input type="hidden" th:field="${customer.cusId}"/>
-             <!--<p th:text="${student.id}"></p>-->
-
-
                 <br>
                 <tr>
                     <th>First Name</th>
@@ -47,6 +42,7 @@
                     <th>Address</th>
                     <td><input type="text" th:field="*{cusAddress}"/></td>
                 </tr>
+                <br>
                 <tr>
                     <th>zip</th>
                     <td><input type="text" th:field="*{cusZip}"/></td>
@@ -67,7 +63,6 @@
                     <td><input type="text" th:field="*{cusEmail}"/></td>
                         </tr>
                 <br>
-
                 <input type="submit" value="Update" class="btn btn-create">
             </Form>
         </div>

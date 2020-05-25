@@ -7,86 +7,80 @@
     <title>Find Customer</title>
 </head>
 
-
 <body>
 
 <header>
-    <nav class="nav">
+    <!-- Navigation Bar -->
+    <nav class="navigation">
         <a href="/">Nordic Motorhome Rental</a>
         <a href="customerAdministration">Customer Administration</a>
-        <a href="/">Motorhome Administration</a>
+        <a href="motorhomeAdministration">Motorhome Administration</a>
     </nav>
 </header>
 
 <div class="container">
-
     <h1>Find Customer</h1>
-
-    <form th:action="@{/getCustomerById}" th:object="${customer}" method="post">
-        <tr>
-        <th>Indtast id:</th>
-            <!--<input type="text" name="cusId" id="search" th:value="${cusId}" placeholder="Id"/> th:field="*{cusId}"-->
-            <input type="text" th:field="*{cusId}" placeholder="Id" />
-        <input type="submit" value="Search"/>
-        </tr>
-    </form>
-
-    <div>
-        <span th:if="${customer.getCusId() != 0}">
-            <br>
-            <h2>Customer details</h2>
+        <form th:action="@{/getCustomerById}" th:object="${customer}" method="post">
             <tr>
-                <th>Id:</th>
-                <span th:text="${customer.getCusId()}"></span>
+            <th>Indtast id:</th>
+                <input type="text" th:field="*{cusId}" placeholder="Id" />
+            <input type="submit" value="Search"/>
             </tr>
-            <br>
-            <tr>
-                <th>First name:</th>
-                <span th:text="${customer.getCusFirstName()}"></span>
-            </tr>
-            <br>
-            <tr>
-                <th>Last name:</th>
-                <span th:text="${customer.getCusLastName()}"></span>
-            </tr>
-            <br>
-            <tr>
-                <th>Phone:</th>
-                <span th:text="${customer.getCusPhone()}"></span>
-            </tr>
-            <br>
-            <tr>
-                <th>Address:</th>
-                <span th:text="${customer.getCusAddress()}"></span>
-            </tr>
-            <br>
-            <tr>
-                <th>Zip:</th>
-                <span th:text="${customer.getCusZip()}"></span>
-            </tr>
-            <br>
-            <tr>
-                <th>City:</th>
-                <span th:text="${customer.getCusCity()}"></span>
-            </tr>
-            <br>
-            <tr>
-                <th>Drivers license:</th>
-                <span th:text="${customer.getCusDriversLicense()}"></span>
-            </tr>
-            <br>
-            <tr>
-                <th>Email:</th>
-                <span th:text="${customer.getCusEmail()}"></span>
-            </tr>
-            <br>
-            <br>
-            <a th:href="@{/editCustomer(cusId=${customer.getCusId()})}"><button class="btn btn-ed">Edit</button></a>
-            <a th:href="@{/deleteCustomer(cusId=${customer.getCusId()})}"><button class="btn btn-del">Delete</button></a>
-
-        </span>
-       <!-- <span th:if="${customer.getCusId() == 0}">Ingen kunder med det id</span> -->
-    </div>
-</div>
-</body>
+        </form>
+        <div>
+            <span th:if="${customer.getCusId() != 0}">
+                <br>
+                <h2>Customer details</h2>
+                <tr>
+                    <th>Id:</th>
+                    <span th:text="${customer.getCusId()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>First name:</th>
+                    <span th:text="${customer.getCusFirstName()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Last name:</th>
+                    <span th:text="${customer.getCusLastName()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Phone:</th>
+                    <span th:text="${customer.getCusPhone()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Address:</th>
+                    <span th:text="${customer.getCusAddress()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Zip:</th>
+                    <span th:text="${customer.getCusZip()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>City:</th>
+                    <span th:text="${customer.getCusCity()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Drivers license:</th>
+                    <span th:text="${customer.getCusDriversLicense()}"></span>
+                </tr>
+                <br>
+                <tr>
+                    <th>Email:</th>
+                    <span th:text="${customer.getCusEmail()}"></span>
+                </tr>
+                <br>
+                <br>
+                <a th:href="@{/editCustomer(cusId=${customer.getCusId()})}"><button class="btn btn-ed">Edit</button></a>
+                <a th:href="@{/deleteCustomer(cusId=${customer.getCusId()})}"><button class="btn btn-del">Delete</button></a>
+                    </span>
+             </div>
+        </div>
+    </body>
 </html>
