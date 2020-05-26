@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Create Lease</title>
+</head>
+
+<body>
+
+<header>
+    <!-- Navigation Bar -->
+    <nav class="navigation">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="motorhomeAdministration">Motorhome Administration</a>
+        <a href="leaseAdministration">Lease Administration</a>
+    </nav>
+</header>
+
+
+<div class="container">
+    <h1>Create Lease</h1>
+    <br>
+
+<span>
+<!--    <span th:if="${cusId() != 0}">-->
+        <br>
+            <h2>Create lease for costumer:</h2>
+        <tr>
+            <th>Id:</th>
+            <span th:text="${cusId}"></span>
+        </tr>
+        <br>
+         <tr>
+            <th>First name:</th>
+            <span th:text="${customer.cusFirstName}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Last name:</th>
+            <span th:text="${customer.cusLastName}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Phone:</th>
+            <span th:text="${customer.cusPhone}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Address:</th>
+            <span th:text="${customer.cusAddress}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Zip:</th>
+            <span th:text="${customer.cusZip}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>City:</th>
+            <span th:text="${customer.cusCity}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Drivers license:</th>
+            <span th:text="${customer.cusDriversLicense}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Email:</th>
+            <span th:text="${customer.cusEmail}"></span>
+        </tr>
+        <br>
+        <br>
+        <br>
+    </span>
+
+           <form th:action="@{/createLease}" th:object="${lease}" method="post">
+               <input type="hidden" th:name="cusId" th:value="${cusId}"/>
+
+               <th>Enter motorhome id:</th>
+                <input th:name="motorhomeId" th:value="${motorhomeId}" placeholder="Motorhome id" />
+                <br>
+                <tr>
+                    <th>Rent date:</th>
+                    <td><input type="date" th:field="*{rentDate}" placeholder="Rent date"/></td>
+                </tr>
+                <br>
+                <tr>
+                    <th>Return date:</th>
+                    <td><input type="date" th:field="*{returnDate}" placeholder="Return date"/></td>
+                </tr>
+                <br>
+                <input type="submit" value="Create" class="btn btn-create">
+            </form>
+        </div>
+    </body>
+</html>

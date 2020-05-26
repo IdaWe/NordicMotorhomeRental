@@ -15,6 +15,7 @@
         <a href="/">Nordic Motorhome Rental</a>
         <a href="customerAdministration">Customer Administration</a>
         <a href="motorhomeAdministration">Motorhome Administration</a>
+        <a href="leaseAdministration">Lease Administration</a>
     </nav>
 </header>
 
@@ -78,6 +79,7 @@
                 <br>
                 <br>
                 <a th:href="@{/editCustomer(cusId=${customer.getCusId()})}"><button class="btn btn-ed">Edit</button></a>
+                <a th:href="@{/createLease(cusId=${customer.getCusId()})}"><button class="btn btn-ed">Create Lease</button></a>
                 <a th:href="@{/deleteCustomer(cusId=${customer.getCusId()})}"><button class="btn btn-del">Delete</button></a>
                     </span>
              </div>
