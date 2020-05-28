@@ -22,6 +22,7 @@ public class MotorhomeDTO {
         this.price = price;
     }
 
+
     public int getMotorhomeId() {
         return motorhomeId;
     }

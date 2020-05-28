@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <title>Delete Customer</title>
+    <title>Delete Product</title>
 </head>
 
 <body>
@@ -20,43 +20,35 @@
 </header>
 
 <div class="container">
-    <h1>Delete Customer</h1>
+    <h1>Delete Product</h1>
     <h2>Are you sure you want to delete?</h2>
-    <form th:action="@{deleteMotorhome}" method="post" th:object="${motorhome}">
-        <input type="hidden" th:field="${motorhome.motorhomeId}"/>
+    <form th:action="@{deleteProduct}"  th:object="${product}" method="post">
+        <input type="hidden" th:field="${product.productId}"/>
         <tr>
+
+
+<!--            <Form class ="container" th:action="@{student/deleteStudent}" method="post">-->
+<!--                <input type="hidden" name="id" th:value="${student.id}"/>-->
+
+
+
             <th>Id:</th>
-            <span th:text="${motorhome.motorhomeId}"></span>
+            <span th:text="${product.productId}"></span>
         </tr>
         <br>
         <tr>
             <th>Brand:</th>
-            <span th:text="${motorhome.getBrand()}"></span>
+            <span th:text="${product.getProductName()}"></span>
         </tr>
         <br>
         <tr>
             <th>Model:</th>
-            <span th:text="${motorhome.getModel()}"></span>
-        </tr>
-        <br>
-        <tr>
-            <th>Type:</th>
-            <span th:text="${motorhome.getType()}"></span>
-        </tr>
-        <br>
-        <tr>
-            <th>Description:</th>
-            <span th:text="${motorhome.getDescription()}"></span>
-        </tr>
-        <br>
-        <tr>
-            <th>Price:</th>
-            <span th:text="${motorhome.getPrice()}"></span>
+            <span th:text="${product.getProductPrice()}"></span>
         </tr>
         <br>
         <br>
         <button type="submit" value="Submit" class="btn btn-del w">Delete</button>
-        <a href="/motorhomeAdministration" class="btn btn-details w" type="submit">No</a>
+        <a href="/productAdministration" class="btn btn-details w" type="submit">No</a>
     </form>
 </div>
 </body>

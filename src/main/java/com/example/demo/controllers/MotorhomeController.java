@@ -49,7 +49,7 @@ public class MotorhomeController {
     /*------------------------------------- See all Motorhomes ----------------------------------------------*/
 
     @GetMapping("/allMotorhomes")
-    public String allCustomers(Model model){
+    public String allMotorhomes(Model model){
         model.addAttribute("motorhomes", motorhomeRepository.readAll());
         return "motorhome/allMotorhomes";
     }

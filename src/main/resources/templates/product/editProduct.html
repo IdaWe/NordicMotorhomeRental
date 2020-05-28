@@ -21,35 +21,21 @@
 </header>
 
 <div class="container">
-    <h1>Edit Motorhome</h1>
-    <form class ="container" th:action="@{/editMotorhome}" th:object="${motorhome}" method="post">
-        <input type="hidden" th:field="${motorhome.motorhomeId}"/>
+    <h1>Edit Product</h1>
+    <form class ="container" th:action="@{/editProduct}" th:object="${product}" method="post">
+        <input type="hidden" th:field="${product.productId}"/>
         <br>
         <tr>
-            <th>Brand</th>
-            <td><input type="text" th:field="*{brand}"/></td>
+            <th>Name</th>
+            <td><input type="text" th:field="*{productName}"/></td>
 
         </tr>
         <br>
         <tr>
-            <th>Model</th>
-            <td><input type="text" th:field="*{model}"/></td>
+            <th>Price</th>
+            <td><input type="text" th:field="*{productPrice}"/></td>
         </tr>
         <br>
-        <tr>
-            <th>Type</th>
-            <td><input type="text" th:field="*{type}"/></td>
-        </tr>
-        <br>
-        <tr>
-            <th>Description</th>
-            <td><input type="text" th:field="*{description}"/></td>
-        </tr>
-        <br>
-        <tr>
-            <th>price</th>
-            <td><input type="text" th:field="*{price}"/></td>
-        </tr>
         <br>
         <input type="submit" value="Update" class="btn btn-create">
     </Form>

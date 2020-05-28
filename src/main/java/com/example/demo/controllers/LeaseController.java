@@ -32,7 +32,7 @@ public class LeaseController {
     /*--------------------------------- Lease Administration ----------------------------------------------*/
 
     @GetMapping("/leaseAdministration")
-    public String customerAdministration(){
+    public String leaseAdministration(){
         return "lease/leaseAdministration";
     }
 

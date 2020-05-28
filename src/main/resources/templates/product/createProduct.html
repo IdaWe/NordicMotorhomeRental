@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
 <head>
     <meta charset="UTF-8">
-    <title>Lease Administration</title>
+    <title>Create Product</title>
     <!-- stylesheet -->
     <link rel="stylesheet" type="text/css" href="/css/Styles.css">
 </head>
@@ -21,12 +20,27 @@
     </nav>
 </header>
 
+
 <div class="container">
-    <h1>Customer Administration </h1>
+    <h1>Create Product</h1>
+    <form th:action="@{/createProduct}" th:object="${product}" method="post">
+
+        <tr>
+            <th>Name:</th>
+            <td><input type="text" th:field="*{productName}" placeholder="Name" /></td>
+        </tr>
         <br>
-            <h2>Choose an option</h2>
-            <a href="/findLease"><button class="btn btn-details">Find Lease</button></a>
-            <a href="/allLeases"><button class="btn btn-details">See all Lease</button></a>
-        </div>
-    </body>
+        <tr>
+            <th>Price:</th>
+            <td><input type="text" th:field="*{productPrice}" placeholder="Price"/></td>
+        </tr>
+        <br>
+        <input type="submit" value="Create" class="btn btn-create">
+    </form>
+    <br>
+</div>
+
+
+
+</body>
 </html>

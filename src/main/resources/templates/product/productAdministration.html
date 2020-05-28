@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Administration</title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/Styles.css">
+</head>
+
+<body>
+
+<header>
+    <!-- Navigation Bar -->
+    <nav class="navigation">
+        <a href="/">Nordic Motorhome Rental</a>
+        <a href="customerAdministration">Customer Administration</a>
+        <a href="motorhomeAdministration">Motorhome Administration</a>
+        <a href="leaseAdministration">Lease Administration</a>
+        <a href="productAdministration">Product Administration</a>
+    </nav>
+</header>
+
+
+<div class="container">
+    <h2>Product List</h2>
+    <a href="/createProduct"><button class ="btn btn-create">Create</button></a>
+    <br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Options</th>
+
+        </tr>
+        <tr th:each="product : ${products}">
+            <th th:text="${product.productId}"></th>
+            <th th:text="${product.productName}"></th>
+            <th th:text="${product.productPrice}"></th>
+            <th>
+                <a th:href="@{/editProduct(productId=${product.productId})}"><button class ="btn btn-ed">Edit</button></a>
+                <a th:href="@{/deleteProduct(productId=${product.productId})}"><button class="btn btn-del">Delete</button></a>
+            </th>
+            </th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
