@@ -21,5 +21,7 @@ public interface IProductRepository {
 
     public void delete(int productId);
 
+    public ProductDTO find(String productName);
+
 
 }

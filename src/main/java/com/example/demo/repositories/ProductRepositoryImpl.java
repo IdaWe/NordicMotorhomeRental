@@ -100,7 +100,6 @@ public class ProductRepositoryImpl implements IProductRepository {
     @Override
     public void edit(ProductDTO product){
         try {
-            ;
             PreparedStatement prep = conn.prepareStatement(EDIT_PRODUCT_SQL);
 
             prep.setString(1, product.getProductName());
@@ -114,6 +113,16 @@ public class ProductRepositoryImpl implements IProductRepository {
         }
 
 
+    }
+
+    //metoder der looper igennem product tabel og gemmer alle items den finder i List<ProductDTO> productDTOList
+    public ProductDTO find(String productName){
+        List<ProductDTO> productDTOList = readAll();
+        for (ProductDTO product : productDTOList) {
+            if(product.getProductName().compareToIgnoreCase(productName) == 0)
+                return product;
+        }
+        return null; //returnere null object hvis den ik finder noget (object fordi den returnere ProductDTO)
     }
 
 

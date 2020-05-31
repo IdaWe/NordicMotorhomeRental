@@ -8,6 +8,6 @@ public interface ILeaseRepository {
 
     // CRUD operations
 
-    public void create(LeaseDTO leaseDTO, int cusId, int motorhomeId);
+    public int create(LeaseDTO leaseDTO, int cusId, int motorhomeId);
 
 }
