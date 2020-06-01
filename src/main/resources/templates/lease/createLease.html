@@ -13,9 +13,8 @@
     <!-- Navigation Bar -->
     <nav class="navigation">
         <a href="/">Nordic Motorhome Rental</a>
-        <a href="customerAdministration">Customer Administration</a>
+        <a href="customerLeaseManagement">Customer & Lease Management</a>
         <a href="motorhomeAdministration">Motorhome Administration</a>
-        <a href="leaseAdministration">Lease Administration</a>
         <a href="productAdministration">Product Administration</a>
     </nav>
 </header>
@@ -90,47 +89,47 @@
                <p>To add any of the extra items, please enter the desired amount below</p>
                <tr>
                    <th>Towel</th>
-                   <td><input th:name="towels" th:value="${towels}" placeholder="Enter amount" /></td>
+                   <td><input th:name="towels" th:value="${towels}" required /></td> <!-- required = der SKAL stå noget ellers kan man ik submitte-->
                </tr>
                <br>
                <tr>
                    <th>Bed linen</th>
-                   <td><input th:name="bedLinen" th:value="${bedLinen}" placeholder="Enter amount" /></td>
+                   <td><input th:name="bedLinen" th:value="${bedLinen}" required /></td>
                </tr>
                <br>
                <tr>
                    <th>Child seat</th>
-                   <td><input th:name="childSeat" th:value="${childSeat}" placeholder="Enter amount" /></td>
+                   <td><input th:name="childSeat" th:value="${childSeat}" required /></td>
                </tr>
                <br>
                <tr>
                    <th>GPS</th>
-                   <td><input th:name="gps" th:value="${gps}" placeholder="Enter amount " /></td>
+                   <td><input th:name="gps" th:value="${gps}" required /></td>
                </tr>
                <br>
                <tr>
                    <th>Bike rack</th>
-                   <td><input th:name="bikeRack" th:value="${bikeRack}" placeholder="Enter amount " /></td>
+                   <td><input th:name="bikeRack" th:value="${bikeRack}" required /></td>
                </tr>
                <br>
                <tr>
                    <th>Picnic table</th>
-                   <td><input th:name="picnicTable" th:value="${picnicTable}" placeholder="Enter amount " /></td>
+                   <td><input th:name="picnicTable" th:value="${picnicTable}" required /></td>
                </tr>
                <br>
                <tr>
                    <th>picnic chairs</th>
-                   <td><input th:name="picnicChairs" th:value="${picnicChairs}" placeholder="Enter amount " /></td>
+                   <td><input th:name="picnicChairs" th:value="${picnicChairs}" required /></td>
                </tr>
                <br>
                 <tr>
                     <th>Rent date:</th>
-                    <td><input type="date" th:field="*{rentDate}" placeholder="Rent date"/></td>
+                    <td><input type="date" th:field="*{rentDate}" required /></td>
                 </tr>
                 <br>
                 <tr>
                     <th>Return date:</th>
-                    <td><input type="date" th:field="*{returnDate}" placeholder="Return date"/></td>
+                    <td><input type="date" th:field="*{returnDate}" required/></td>
                 </tr>
                 <br>
                 <input type="submit" value="Create" class="btn btn-create">

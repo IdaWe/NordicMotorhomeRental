@@ -13,9 +13,8 @@
     <!-- Navigation Bar -->
     <nav class="navigation">
         <a href="/">Nordic Motorhome Rental</a>
-        <a href="customerAdministration">Customer Administration</a>
+        <a href="customerLeaseManagement">Customer & Lease Management</a>
         <a href="motorhomeAdministration">Motorhome Administration</a>
-        <a href="leaseAdministration">Lease Administration</a>
         <a href="productAdministration">Product Administration</a>
     </nav>
 </header>
@@ -83,6 +82,32 @@
                 <a th:href="@{/createLease(cusId=${customer.getCusId()})}"><button class="btn btn-ed">Create Lease</button></a>
                 <a th:href="@{/deleteCustomer(cusId=${customer.getCusId()})}"><button class="btn btn-del">Delete</button></a>
                     </span>
+
+                    <hr>
+
+                <table>
+                    <tr>
+                        <th>Lease Id</th>
+                        <th>Motorhome Id</th>
+                        <th>Customer Id</th>
+                        <th>Rent date</th>
+                        <th>Return date</th>
+                    </tr>
+                    <tr th:each="leaseEntities : ${allLeases}">
+<!--                    <tr>-->
+<!--                        <th>Lease Id</th>-->
+<!--                        <th>Moorhome Id</th>-->
+<!--                        <th>Customer Id</th>-->
+<!--                        <th>Rent date</th>-->
+<!--                        <th>Return date</th>-->
+<!--                    </tr>-->
+                        <th th:text="${leaseEntities.leaseId}"></th>
+                        <th th:text="${leaseEntities.motorhomeId}"></th>
+                        <th th:text="${leaseEntities.cusId}"></th>
+                        <th th:text="${#dates.format(leaseEntities.rentDate, 'yyyy-MM-dd')}"></th>
+                        <th th:text="${#dates.format(leaseEntities.returnDate, 'yyyy-MM-dd')}"></th>
+                    </tr>
+                </table>
              </div>
         </div>
     </body>
