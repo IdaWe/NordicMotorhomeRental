@@ -18,39 +18,10 @@ nav {
     text-align: center;
     margin: 0 430px;
 
-
-    /*padding-bottom: 15px; !*padding er altid det indvendige i nav'en, men det uden om teksten*!*/
-    /*padding-top: 15px;*/
-    /*text-align:center;*/
-    /*padding-left: 127px; !*rykker tekst til venstre*!*/
-
-
 }
 
-/*nav a elementet refererer til navigation anchor tags*/
-/*nav a {*/
-/*    padding: 10px 15px;*/
-/*    text-decoration: none;*/
-/*    color: #000066;*/
-/*    font-weight: bold;*/
-/*    font-size: 18px;*/
-/*}*/
 
 ul {
-    /*position: fixed;*/
-    /*top: 75px;*/
-    /*!*width: 75%;*!*/
-    /*list-style-type: none;*/
-    /*background-color: #4c98ca;*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-    /*overflow: hidden;*/
-    /*margin-left: 220px;*/
-    /*margin-right: 220px;*/
-    /*padding-left: 127px; !*rykker tekst til venstre*!*/
-    /*padding-right: 285px;*/
-    /*!*display:inline-block;*!*/
-    /*text-align: center;*/
     list-style: none;
     padding: 0;
     margin: 0;
@@ -65,21 +36,13 @@ li {
     border-right: 1px solid #bbb;
     text-align: center;
     display: inline;
-    /*display:inline;*/
-    /*display:inline;*/
+
 }
 
 li a {
-    /*display: block;*/
-    /*color: black;*/
-    /*text-align: center;*/
-    /*padding: 14px 16px; !*1. tal = top & bund 2. tal = højre & venstre*!*/
-    /*text-decoration: none;*/
-    /*margin: 0 auto;*/
-    /*margin-left: 13px;*/
     display: block;
     padding: 10px 15px;
-    /*color: #000000;*/
+
     text-decoration: none;
     background-color: #539CD2;
     color: #000000;
