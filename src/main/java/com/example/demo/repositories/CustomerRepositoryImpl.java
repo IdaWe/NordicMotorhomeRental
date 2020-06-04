@@ -47,14 +47,14 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
 
 
     public CustomerDTO read(int cusId) {
-        CustomerDTO customerToReturn = new CustomerDTO();
+        CustomerDTO customerToReturn = new CustomerDTO(); //normalt ville man sætte denne til null i tilfælde af den ikke fnder noget i databasen fordi så returnere metoden null
         try {
             PreparedStatement getSingleCustomer = conn.prepareStatement("SELECT * FROM customer WHERE cus_id=?");
             getSingleCustomer.setInt(1, cusId);
             ResultSet rs = getSingleCustomer.executeQuery();
             while (rs.next()) {
                 customerToReturn = new CustomerDTO();
-                customerToReturn.setCusId(rs.getInt("cus_id"));
+                customerToReturn.setCusId(rs.getInt("cus_id")); //her settes en variabel med det data der er modtaget fra databasen
                 customerToReturn.setCusFirstName(rs.getString(2));
                 customerToReturn.setCusLastName(rs.getString(3));
                 customerToReturn.setCusPhone(rs.getInt(4));
@@ -67,7 +67,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
         } catch (SQLException s) {
             s.printStackTrace();
         }
-        return customerToReturn;
+        return customerToReturn; //returnere et obejct af typen customerDTO som er et DTO
     }
 
 

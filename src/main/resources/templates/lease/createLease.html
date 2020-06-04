@@ -8,14 +8,20 @@
 </head>
 
 <body>
+<div>
+    <h1 id="logo">NORDIC MOTORHOME RENTAL</h1>
+</div>
+
 
 <header>
     <!-- Navigation Bar -->
-    <nav class="navigation">
-        <a href="/">Nordic Motorhome Rental</a>
-        <a href="customerLeaseManagement">Customer & Lease Management</a>
-        <a href="motorhomeAdministration">Motorhome Administration</a>
-        <a href="productAdministration">Product Administration</a>
+    <nav>
+        <ul> <!--ul = unordered list (laver det på punktform), li = list-->
+            <li><a href="/">Nordic Motorhome Rental</a></li>
+            <li><a href="/customerLeaseManagement">Customer & Lease Management</a></li>
+            <li><a href="motorhomeAdministration">Motorhome Administration</a></li>
+            <li><a href="productAdministration">Product Administration</a></li>
+        </ul>
     </nav>
 </header>
 
@@ -82,7 +88,7 @@
 
                <tr>
                    <th>Enter motorhome id:</th>
-                <td><input th:name="motorhomeId" th:value="${motorhomeId}" placeholder="Motorhome id" /></td>
+                <td><input th:name="motorhomeId" th:value="${motorhomeId}" placeholder="Motorhome id" required /></td>
                </tr>
                 <br>
                <h3>Extras</h3>
@@ -124,7 +130,7 @@
                <br>
                 <tr>
                     <th>Rent date:</th>
-                    <td><input type="date" th:field="*{rentDate}" required /></td>
+                    <td><input type="date" th:field="*{rentDate}" required /></td> <!-- * i stedet for $ fordi den bruger lease objectet og ikke en model attribut direkte -->
                 </tr>
                 <br>
                 <tr>

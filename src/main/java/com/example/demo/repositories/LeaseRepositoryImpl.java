@@ -33,7 +33,7 @@ public class LeaseRepositoryImpl implements ILeaseRepository {
     @Override
     public int create(LeaseDTO leaseDTO, int cusId, int motorhomeId) {
         try {
-            String generatedColumns[] = {"lease_id"}; //<----høre til metode A:
+            String generatedColumns[] = {"lease_id"};                                                   //<----høre til metode A:
             PreparedStatement prep = conn.prepareStatement(CREATE_LEASE_SQL, generatedColumns);
             {
                 prep.setInt(1, leaseDTO.getLeaseId());
@@ -44,18 +44,18 @@ public class LeaseRepositoryImpl implements ILeaseRepository {
                 prep.executeUpdate();
 
 
-                //Metode A: returnere hele den indsatte row(som er leasen)
+                                                                         //Metode A: returnere hele den indsatte row(som er leasen)
                 java.sql.ResultSet rs = prep.getGeneratedKeys();
                 if (rs.next()) {
-                    int id = rs.getInt(1); //Her henter vi leaseId ud fra den returnerede række
-                    System.out.println("Inserted ID -" + id); // display inserted record
+                    int id = rs.getInt(1);                  //Her henter vi leaseId ud fra den returnerede række
+                    System.out.println("Inserted ID -" + id);                // display inserted record
                     return id;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return -1; //returnere den -1 betyder det at der er en fejl
+        return -1;                                                     //returnere den -1 betyder det at der er en fejl
     }
 
 
